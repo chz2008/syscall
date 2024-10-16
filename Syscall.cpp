@@ -3,7 +3,7 @@
 
 #pragma comment(lib, "ntdll")
 
-EXTERN_C NTSTATUS SysNtTerminateProcessFunc(
+EXTERN_C NTSTATUS MyNtTerminateProcess(
     HANDLE ProcessHandle,
     NTSTATUS ExitStatus
 );
@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    NTSTATUS status = SysNtTerminateProcessFunc(hProcess, 0); 
+    NTSTATUS status = MyNtTerminateProcess(hProcess, 0); 
 
     if (status == 0) { 
         std::cout << "Process terminated successfully." << std::endl;
